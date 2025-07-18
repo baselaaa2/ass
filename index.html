@@ -1,75 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>discord.gg/uaee</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: url('https://i.pinimg.com/originals/51/ae/a3/51aea3393b8234a1e69d8713a0a58bc3.gif') no-repeat center center fixed;
-            background-size: cover;
-            font-family: 'Courier New', Courier, monospace;
-            color: #0b00ff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-            text-align: center;
-        }
-        .image-container img {
-            width: 750px; 
-            height: auto;
-            border: 2px solid #0b00ff; 
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(0, 0, 255, 0.7); 
-        }
-        .info {
-            margin-top: 20px;
-            font-size: 1.5em;
-            color: #0b00ff; 
-            text-shadow: 0px 0px 8px #0b00ff, 0px 0px 15px #0b00ff, 0px 0px 25px #0b00ff; 
-            letter-spacing: 4.5px; 
-            white-space: pre-wrap;
-        }
-        .text {
-            margin-top: 20px;
-            font-size: 3em; 
-            color: #0b00ff; 
-            text-shadow: 0px 0px 8px #0b00ff, 0px 0px 15px #0b00ff, 0px 0px 25px #0b00ff; 
-            letter-spacing: 4.5px; 
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>!! تحذير !!</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #111;
+      color: #fff;
+      font-family: 'Share Tech Mono', monospace;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: left;
+      padding: 2rem;
+    }
+
+    .glitch-text {
+      font-size: 1.4rem;
+      position: relative;
+      color: #fff;
+      white-space: pre-line;
+      line-height: 1.4;
+      max-width: 600px;
+      user-select: none;
+      animation: none;
+    }
+
+    .glitch-text::before,
+    .glitch-text::after {
+      display: none;
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-    <div class="image-container">
-        <img src="https://cdn.discordapp.com/attachments/1272616815343833163/1395726601475330109/snaptik_7330368020201721089.gif?ex=687b7f31&is=687a2db1&hm=3e6a2e4ef9d15be749beb0a250110786a28c69c1e328deb92a580904f7eedc9f&" alt="Discord Image">
-    </div>
-    <audio autoplay loop>
-        <source src="https://cdn.discordapp.com/attachments/1251167470190985256/1395736915269124207/-1317105496780435606_1.mp3?ex=687b88cc&is=687a374c&hm=8b699d08df6cb77a8c48155967c852bb27e0faabd8de2b34687a8149a1faad57&" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <div class="info" id="ip-info">
-        <strong>IP: <span id="ip"></span></strong><br>
-        <span><strong>City:</strong> <span id="city"></span></span><br>
-        <span><strong>Region:</strong> <span id="region"></span></span><br>
-        <span><strong>Country:</strong> <span id="country"></span></span><br>
-        <span><strong>Location:</strong> <span id="loc"></span></span><br>
-        <span><strong>Organization:</strong> <span id="org"></span></span><br>
-        <span><strong>Timezone:</strong> <span id="timezone"></span></span>
-    </div>
-    <div class="text"> بعيووووني حموود  </div>
 
-    <script>
-         fetch('https://ipinfo.io/json')
-        .then(response => response.json())
-        .then(data => {
-            delete data.readme;
-            const infoDiv = document.getElementById('ip-info');
-            infoDiv.textContent = JSON.stringify(data, null, 2);
-        });
-    </script>
+  <div class="glitch-text" id="warning-text" data-text=""></div>
+
+  <audio autoplay loop>
+    <source src="https://cdn.discordapp.com/attachments/1389399706534285332/1395803074341113988/ssstik.io_hmd5__1752855683476.mp3?ex=687bc669&is=687a74e9&hm=ea896d8fdfa621bf5864d4905a89483fe790af568fd319e2ce84ac71582996b9&" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const lines = [
+      "[!] تم كشف اختراق النظام",
+      "[+] تم اختراق الجهاز ؟",
+      "[+] تجاوز جدار الحماية...",
+      "{+} Ha2mod & Basel متواجدين داخل شبكتك.",
+      "[!] بدأ استخراج البيانات...",
+      ">>> قفل النظام خلال 3.. 2.. 1..",
+      "",
+      "تنبيه: لا تحاول إيقاف العملية.",
+      "جميع الأنشطة مراقبة.",
+      "للانضمام للدعم، اضغط هنا.",
+    ];
+
+    const textEl = document.getElementById("warning-text");
+    let lineIndex = 0;
+    let charIndex = 0;
+    let finalText = "";
+
+    function typeLine() {
+      if (lineIndex < lines.length) {
+        if (charIndex < lines[lineIndex].length) {
+          finalText += lines[lineIndex].charAt(charIndex);
+          textEl.innerHTML = finalText;
+          textEl.setAttribute("data-text", finalText);
+          charIndex++;
+          setTimeout(typeLine, 150);
+        } else {
+          finalText += "\n";
+          charIndex = 0;
+          lineIndex++;
+          setTimeout(typeLine, 900);
+        }
+      } else {
+        setTimeout(() => {
+          window.location.href = "https://discord.gg/ces";
+        }, 200002);
+      }
+    }
+
+    window.onload = () => {
+      setTimeout(typeLine, 1500);
+    };
+  </script>
+
 </body>
 </html>
